@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+	<div class="row">
+	    
+	    <div class="col-md-8 col-md-offset-2">
+	        
+    		<h1>Create post</h1>
+    		
+    		<form [formGroup] = "PostForm" >
+    		    
+    		    
+    		    <div class="form-group has-error">
+    		        <label for="title">Title *</label>
+    		        <input [formControlName] = "'title'" type="text" class="form-control" name="title" />
+    		    </div>
+    		    
+    		    <div class="form-group">
+    		        <label for="description">Text *</label>
+    		        <textarea [formControlName] = "'text'" rows="5" class="form-control" name="text" ></textarea>
+    		    </div>
+    		    
+    		    <div class="form-group">
+    		        <button type="submit" class="btn btn-primary">
+    		            Create
+    		        </button>
+    		        <button class="btn btn-default" routerLink="/communitypage/ :id" >
+    		            Cancel
+    		        </button>
+    		    </div>
+    		    
+    		</form>
+		</div>
+		
+	</div>
+</div>

@@ -1,0 +1,55 @@
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="assets/slike/redditSlikaa.png"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+              <div class="divider d-flex align-items-center my-4">
+                <h1><p class="text-center fw-bold mx-3 mb-0">Registration</p></h1>
+              </div>
+
+
+          <form  [formGroup]="registerForm"  (ngSubmit)="register()">
+
+            <div class="form-outline mb-4">
+              <label class="form-label" for="form3Example3">Username</label>
+              <input type="text" [formControlName]="'username'" id="username" class="form-control form-control-lg"
+                placeholder="Username" />  
+              <span  id = "username" *ngIf = "!registerForm.get('username')?.valid && registerForm.get('username')?.touched">Invalid Username</span>
+              
+            </div>
+  
+
+            <div class="form-outline mb-3">
+              <label class="form-label" for="form3Example4">Password</label>
+              <input type="password" [formControlName]="'password'" id="password" class="form-control form-control-lg"
+                placeholder="Password" />
+                <span  id = "password" *ngIf = "!registerForm.get('password')?.valid && registerForm.get('password')?.touched">Invalid Password</span>
+            </div>
+
+         
+             <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example3">Email address</label>
+                <input type="email" [formControlName]="'email'" id="email" class="form-control form-control-lg"
+                  placeholder="Email" />
+                  <span  id = "email" *ngIf = "!registerForm.get('email')?.valid && registerForm.get('email')?.touched">Invalid Email</span>
+              </div>
+    
+  
+            
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
+              <p class="small fw-bold mt-2 pt-1 mb-0">You have an account? <a href="#!" routerLink="/login"
+                  class="link-danger">Login</a></p>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </section>

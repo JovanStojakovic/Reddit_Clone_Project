@@ -1,0 +1,93 @@
+<div class="card mb-4">
+<div class="card-body text-center">
+    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+      class="rounded-circle img-fluid" style="width: 150px;">
+    <h5 class="my-3">{{loggedUser.username}}</h5>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-3">
+          
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">{{loggedUser.displayName}}</p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Email</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">{{loggedUser.email}}</p>
+        </div>
+      </div>
+      <hr>
+      
+      
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Regis date</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">{{loggedUser.registrationDate | date: 'dd-MM-yyyy' }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mb-2">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+      style="z-index: 1;">Edit Profile</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bambModal" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+      style="z-index: 1;">Edit Password</button>
+      
+    </div>
+  </div>
+</div>
+<form class="modal fade" [formGroup] = "editForm" (ngSubmit) = "editProfile()" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="exampleInputEmail1">Display Name</label>
+       <input type="text" [formControlName] = "'displayName'" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="display name"><br>
+
+    <label for="exampleInputEmail1">Description</label>
+    <textarea type="text" [formControlName] = "'description'" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="description"></textarea>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</form>
+<!--edit password-->
+<form class="modal fade" [formGroup] = "passwordForm" (ngSubmit) = "editPassword()" id="bambModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="exampleInputEmail1">Old password</label>
+       <input type="text" [formControlName] = "'oldPassword'" class="form-control" id="bambInputEmail1" aria-describedby="emailHelp" placeholder="Old password"><br>
+
+    <label for="exampleInputEmail1">New password</label>
+    <textarea type="text" [formControlName] = "'newPassword'" class="form-control" id="bambInputEmail1" aria-describedby="emailHelp" placeholder="New password"></textarea>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Change</button>
+      </div>
+    </div>
+  </div>
+</form>

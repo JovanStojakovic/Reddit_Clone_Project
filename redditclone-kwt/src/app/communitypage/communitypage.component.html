@@ -1,0 +1,97 @@
+<app-navbar></app-navbar>
+<section class="h-100 gradient-custom-2">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="">
+          <div class="card">
+            <div class="rounded-top text-white d-flex flex-row" style="background-color: rgb(255, 0, 0); height:200px;">
+              <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                <img src="assets/slike/communityicon.png"
+                  alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                  style="width: 150px; z-index: 1">
+                
+              </div>
+              <div class="ms-3" style="margin-top: 130px;">
+                <h5>{{community.name}}</h5>
+          
+              </div>
+            </div>
+            <div class="p-4 text-black" style="background-color: #f8f9fa;">
+              <div class="d-flex justify-content-end text-center py-1">
+                <div>             
+                  <button type="button"  data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
+                  style="z-index: 1;">
+                  create post 
+                </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-4 text-black">
+              <div class="mb-5">
+                
+                <div class="p-4" style="background-color: #f8f9fa;">
+                  <div class = "AllPosts" *ngFor="let post of posts">
+                    <div class="container ">
+                       <div class="row">
+                           <div class="col-md-8">
+                               <div class="media g-mb-30 media-comment">
+                                   <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+                                     <div class="g-mb-15">
+                                      
+                                      <span class="g-color-gray-dark-v4 g-font-size-12">{{post.creationDate | date: 'dd-MM-yyyy' }}</span>
+                                   </div>
+                                <div class="card-body">
+                                   <h5 class="card-title " routerLink="/communitypage}">{{post.title}}</h5>
+                                   <p class="card-text">{{post.text}}</p>
+                                </div>
+                                
+                               
+                                
+                     </div>
+                    </div>
+                 </div>
+                 </div>
+                 </div>
+                 </div>
+                 
+                    
+                 
+                 
+                 
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- Modal -->
+<form class="modal fade" [formGroup] = "PostForm" (ngSubmit) = "createPost()" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="exampleInputEmail1">Title</label>
+       <input type="text" [formControlName] = "'title'" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Title"><br>
+
+    <label for="exampleInputEmail1">Text</label>
+    <textarea type="text" [formControlName] = "'text'" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Text"></textarea>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</form>

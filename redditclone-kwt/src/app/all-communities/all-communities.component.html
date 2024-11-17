@@ -1,0 +1,39 @@
+<div class="main">
+  <app-navbar></app-navbar>
+  <div class="card">
+    <img
+      src="https://t4.ftcdn.net/jpg/04/67/93/01/360_F_467930159_UcfrOkjhFG436zoT9fSetYccBgpNkokp.jpg"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body">
+      <h3 class="card-title">All communities</h3>
+    </div>
+
+    <table class="table" style="width: 90%">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Name</th>
+
+          <th scope="col">Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let community of communities">
+          
+          <td>{{ community.name }}</td>
+
+          <td>
+            <a href="editcommunity/{{ community.id }}"
+              ><img
+                src="assets/slike/izmenaposta.png"
+                alt=""
+                width="30"
+                height="24"
+            /></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
